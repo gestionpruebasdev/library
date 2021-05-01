@@ -4,7 +4,8 @@ const Book = require('../models/Book');
 const app = express();
 
 app.get('/time', (req, res) => {
-    res.json({ ok: true, time: (new Date(Date.now())) });
+    let time = (new Date(Date.now()));
+    res.json({ ok: true, time: time.split('T')[1]});
 });
 
 app.post('/book/create', (req, res) => {
