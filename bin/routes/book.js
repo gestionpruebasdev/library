@@ -3,8 +3,8 @@ const Book = require('../models/Book');
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello');
+app.get('/time', (req, res) => {
+    res.json({ ok: true, time: (new Date(Date.now())) });
 });
 
 app.post('/book/create', (req, res) => {
