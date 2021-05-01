@@ -1,11 +1,12 @@
 const express = require('express');
+const moment = require('moment');
 const Book = require('../models/Book');
 
 const app = express();
 
 app.get('/time', (req, res) => {
     let time = (new Date(Date.now()));
-    res.json({ ok: true, time: time.split('T')[1]});
+    res.json({ ok: true, time: moment(time).format('LTS')});
 });
 
 app.post('/book/create', (req, res) => {
